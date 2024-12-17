@@ -1,8 +1,31 @@
-# React + Vite
+# Invoice Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
 
-Currently, two official plugins are available:
+Clone the repository and move into the project folder
+```sh
+git clone git@github.com:nterms/invoice-analyzer.git
+cd invoice-analyzer
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies
+```sh
+npm install
+```
+
+Run frontend development server
+
+```sh
+npm run dev
+```
+
+Watch the terminal for the app url `http://localhost:5173/`. This is the front end application URL.
+
+Create a new file `.env` in root directory of the project and add following line and save. This is the URL of the backend API. Change the URL accordingly to match yours.
+
+```
+VITE_API_BASE_URL=http://localhost:8090
+```
+
+Open the browser to front-end URL. Create and account and continue using application.
+
