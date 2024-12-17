@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 const StateContext = createContext({
-    currentUser: null,
+    user: null,
     token: null,
     setUser: () => {},
     setToken: () => {}

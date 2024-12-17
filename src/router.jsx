@@ -5,7 +5,9 @@ import NotFound from './views/NotFound';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import Dashboard from './views/Dashboard';
+import Invoices from './views/Invoices';
 import Users from './views/Users';
+import InvoiceUploader from './views/InvoiceUploader';
 
 const router = createBrowserRouter([
     {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard />
+            },
+            {
+                path: '/invoices',
+                element: <Invoices />
+            },
+            {
+                path: '/invoices/upload',
+                element: <InvoiceUploader />
             },
             {
                 path: '/users',

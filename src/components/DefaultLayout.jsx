@@ -24,7 +24,7 @@ export default function DefaultLayout() {
             .catch(err => {
                 console.log(err);
             })
-    })
+    }, [])
 
     return (
         <>
@@ -53,7 +53,7 @@ export default function DefaultLayout() {
                         </ul>
                     </div>
                 </nav>
-                <main>
+                <main className="p-3">
                     <Outlet />
                 </main>
             </div>

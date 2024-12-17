@@ -1,5 +1,9 @@
 @import "assets/css/master.css";
 
+main h1 {
+  font-size: 1.5rem;
+}
+
 .login-signup-form {
   width: 400px;
 }
