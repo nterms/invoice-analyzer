@@ -9,9 +9,9 @@ export default function Invoices() {
     useEffect(() => {
         setLoading
         axiosClient.get('/invoices')
-            .then(({res}) => {
+            .then(({data}) => {
                 console.log(data)
-                setInvoices(res.data)
+                setInvoices(data)
             })
             .catch(err => {
                 console.log(err);
@@ -35,9 +35,9 @@ export default function Invoices() {
                 </thead>
                 <tbody>
                     {invoices.map(invoice => {
-                        <tr>
+                        return <tr>
                             <td>{invoice.invoice_number}</td>
-                            <td>{invoice.total_amount}</td>
+                            <td className="text-right">{invoice.total_amount}</td>
                             <td>{invoice.purchased_date}</td>
                             <td>
                                 <Link to={'/invoices/' + invoice.id}>View Details</Link>

@@ -35,9 +35,7 @@ export default function DefaultLayout() {
                     </div>
                 </div>
                 <ul className="components text-secondary">
-                    <li><Link to="/dashboard"><i className="fas fa-home"></i> Dashboard</Link></li>
                     <li><Link to="/invoices"><i className="fas fa-file"></i> Invoices</Link></li>
-                    <li><Link to="/users"><i className="fas fa-user"></i> Users</Link></li>
                 </ul>
             </nav>
             <div id="body" className="active">

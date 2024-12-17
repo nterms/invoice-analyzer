@@ -4,9 +4,8 @@ import GuestLayout from './components/GuestLayout';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import Signup from './views/Signup';
-import Dashboard from './views/Dashboard';
 import Invoices from './views/Invoices';
-import Users from './views/Users';
+import InvoiceDetails from './views/InvoiceDetails';
 import InvoiceUploader from './views/InvoiceUploader';
 
 const router = createBrowserRouter([
@@ -16,11 +15,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Navigate to='/dashboard' />
-            },
-            {
-                path: '/dashboard',
-                element: <Dashboard />
+                element: <Navigate to='/invoices' />
             },
             {
                 path: '/invoices',
@@ -31,8 +26,8 @@ const router = createBrowserRouter([
                 element: <InvoiceUploader />
             },
             {
-                path: '/users',
-                element: <Users />
+                path: '/invoices/:id',
+                element: <InvoiceDetails />
             }
         ]
     },
