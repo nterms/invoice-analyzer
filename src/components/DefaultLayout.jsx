@@ -13,12 +13,19 @@ export default function DefaultLayout() {
     }
 
     return (
-        <div id="DefaultLayout">
-            <aside>
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/users">Users</Link>
-            </aside>
-            <div className="content">
+        <>
+            <nav id="sidebar" className="">
+                <div className="sidebar-header">
+                    <div className="text-center mx-auto pb-3">
+                        <strong>INVOICE ANALYZER</strong>
+                    </div>
+                </div>
+                <ul className="components text-secondary">
+                    <li><Link to="/dashboard"><i className="fas fa-home"></i> Dashboard</Link></li>
+                    <li><Link to="/users"><i class="fas fa-user"></i> Users</Link></li>
+                </ul>
+            </nav>
+            <div id="body" className="active">
                 <header>
                     <div>
                         Header
@@ -32,6 +39,6 @@ export default function DefaultLayout() {
                     <Outlet />
                 </main>
             </div>
-        </div>
+        </>
     )
 }
