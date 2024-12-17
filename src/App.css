@@ -1,5 +1,5 @@
 @import "assets/css/master.css";
 
-.login-signup-form .form-control {
-  width: 250px;
+.login-signup-form {
+  width: 400px;
 }

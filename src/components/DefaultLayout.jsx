@@ -1,8 +1,10 @@
 import { Link, Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
+import { useEffect } from "react";
+import axiosClient from "../axios-client"
 
 export default function DefaultLayout() {
-    const {user, token, setToken} = useStateContext()
+    const {user, token, setUser, setToken} = useStateContext()
 
     if (!token) {
         return <Navigate to="/login"/>
@@ -12,6 +14,17 @@ export default function DefaultLayout() {
         evt.preventDefault()
         setToken(null)
     }
+
+    useEffect(() => {
+        axiosClient.get('/user')
+            .then(({data}) => {
+                console.log(data)
+                setUser(data)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
 
     return (
         <>
@@ -23,19 +36,23 @@ export default function DefaultLayout() {
                 </div>
                 <ul className="components text-secondary">
                     <li><Link to="/dashboard"><i className="fas fa-home"></i> Dashboard</Link></li>
-                    <li><Link to="/users"><i class="fas fa-user"></i> Users</Link></li>
+                    <li><Link to="/invoices"><i className="fas fa-file"></i> Invoices</Link></li>
+                    <li><Link to="/users"><i className="fas fa-user"></i> Users</Link></li>
                 </ul>
             </nav>
             <div id="body" className="active">
-                <header>
-                    <div>
-                        Header
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div className="collapse navbar-collapse" id="navbarText">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item active">
+                                <span className="nav-link">{user.name}</span>
+                            </li>
+                            <li className="nav-item">
+                                <a href="#" onClick={onLogout} className="nav-link">Logout</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
-                        {user.name}
-                        <a href="#" onClick={onLogout} className="btn-logout">Logout</a>
-                    </div>
-                </header>
+                </nav>
                 <main>
                     <Outlet />
                 </main>
