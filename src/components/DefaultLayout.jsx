@@ -35,13 +35,13 @@ export default function DefaultLayout() {
                     </div>
                 </div>
                 <ul className="components text-secondary">
-                    <li><Link to="/invoices"><i className="fas fa-file"></i> Invoices</Link></li>
+                    <li><Link to="/invoices"><i className="fas fa-file-invoice-dollar"></i> Invoices</Link></li>
                 </ul>
             </nav>
             <div id="body" className="active">
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="collapse navbar-collapse" id="navbarText">
-                        <ul className="navbar-nav ml-auto">
+                        <ul className="navbar-nav">
                             <li className="nav-item active">
                                 <span className="nav-link">{user.name}</span>
                             </li>

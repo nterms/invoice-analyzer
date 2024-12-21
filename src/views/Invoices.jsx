@@ -7,13 +7,15 @@ export default function Invoices() {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        setLoading
+        setLoading(true)
         axiosClient.get('/invoices')
             .then(({data}) => {
+                setLoading(false)
                 console.log(data)
                 setInvoices(data)
             })
             .catch(err => {
+                setLoading(false)
                 console.log(err);
             })
     }, [])
@@ -34,16 +36,26 @@ export default function Invoices() {
                     </tr>
                 </thead>
                 <tbody>
-                    {invoices.map(invoice => {
+                    {invoices.length > 0 ? invoices.map(invoice => {
                         return <tr>
                             <td>{invoice.invoice_number}</td>
                             <td className="text-right">{invoice.total_amount}</td>
-                            <td>{invoice.purchased_date}</td>
-                            <td>
-                                <Link to={'/invoices/' + invoice.id}>View Details</Link>
+                            <td className="text-center">{invoice.purchase_date}</td>
+                            <td className="text-center">
+                                <Link to={'/invoices/' + invoice.id} className="btn btn-secondary"><i className="fas fa-file-text"></i> View Details</Link>
                             </td>
                         </tr>
-                    })}
+                    }) : <tr>
+                        <td colSpan={4} className="text-center">
+                            No invoices available.
+                        </td>
+                    </tr>}
+                    {loading && <tr>
+                        <td colSpan={4} className="text-center">
+                            <i className="fas fa-spin fa-refresh"></i>
+                            Loading...
+                        </td>
+                    </tr>}
                 </tbody>
             </table>
         </div>
